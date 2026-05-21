@@ -5,171 +5,190 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hughes Estate — Collection</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #1A1714;
-  --bg2: #211E1B;
-  --bg3: #2A2622;
-  --card: #242018;
-  --card2: #2E2A25;
-  --border: rgba(255,255,255,0.08);
-  --border2: rgba(255,255,255,0.14);
-  --gold: #C9A84C;
-  --gold2: #E8C96B;
-  --gold3: #F5DFA0;
-  --gold-dim: rgba(201,168,76,0.12);
-  --text: #F0EBE3;
-  --text2: #A89F94;
-  --text3: #6B635A;
-  --green: #4A8C62;
-  --green-light: rgba(74,140,98,0.15);
-  --red: #8C4A4A;
-  --red-light: rgba(140,74,74,0.15);
-  --blue: #4A6E8C;
-  --blue-light: rgba(74,110,140,0.15);
+  --bg: #F5F2ED;
+  --bg2: #FFFFFF;
+  --bg3: #EDE9E2;
+  --card: #FFFFFF;
+  --border: #E2DDD4;
+  --border2: #C8C0B4;
+  --gold: #8B6914;
+  --gold2: #A67C1F;
+  --gold-light: #FBF5E6;
+  --gold-mid: #F0E0A8;
+  --text: #1C1814;
+  --text2: #5A5248;
+  --text3: #9B9189;
+  --green: #2D6A3F;
+  --green-light: #EBF5EE;
+  --blue: #1B4F72;
+  --blue-light: #EBF5FB;
+  --red: #8B2020;
   --radius: 10px;
-  --shadow: 0 2px 12px rgba(0,0,0,0.4);
-  --shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
+  --shadow: 0 1px 4px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.14);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.6}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.6}
 
-/* ── HEADER ── */
-.site-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 32px;display:flex;align-items:center;gap:24px;height:64px;position:sticky;top:0;z-index:100}
-.header-logo{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold2);letter-spacing:0.5px;white-space:nowrap}
-.header-logo span{color:var(--text3);font-style:italic;font-size:14px;font-family:'Source Sans 3',sans-serif;margin-left:8px}
+/* HEADER */
+.site-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 32px;display:flex;align-items:center;gap:20px;height:64px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 var(--border)}
+.header-logo{font-family:'Playfair Display',serif;font-size:20px;color:var(--text);letter-spacing:0.2px;white-space:nowrap}
+.header-logo span{color:var(--text3);font-style:italic;font-size:13px;font-family:'Inter',sans-serif;margin-left:8px}
 .header-spacer{flex:1}
-.search-box{display:flex;align-items:center;gap:8px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:8px 14px;width:260px;transition:border-color 0.2s}
-.search-box:focus-within{border-color:var(--gold)}
+.search-box{display:flex;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:8px 14px;width:260px;transition:border-color 0.2s}
+.search-box:focus-within{border-color:var(--gold2);box-shadow:0 0 0 3px rgba(166,124,31,0.1)}
 .search-box svg{width:14px;height:14px;color:var(--text3);flex-shrink:0}
-.search-box input{background:none;border:none;outline:none;font-size:13.5px;color:var(--text);font-family:'Source Sans 3',sans-serif;width:100%}
+.search-box input{background:none;border:none;outline:none;font-size:13.5px;color:var(--text);font-family:'Inter',sans-serif;width:100%}
 .search-box input::placeholder{color:var(--text3)}
 .view-toggle{display:flex;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-.vt-btn{padding:7px 12px;border:none;background:none;cursor:pointer;color:var(--text3);transition:all 0.15s;display:flex;align-items:center}
+.vt-btn{padding:8px 12px;border:none;background:none;cursor:pointer;color:var(--text3);transition:all 0.15s;display:flex;align-items:center}
 .vt-btn svg{width:15px;height:15px}
-.vt-btn.active{background:var(--gold-dim);color:var(--gold2)}
+.vt-btn.active{background:var(--gold-light);color:var(--gold2)}
 
-/* ── LAYOUT ── */
+/* LAYOUT */
 .page{display:flex;min-height:calc(100vh - 64px)}
 
-/* ── SIDEBAR ── */
+/* SIDEBAR */
 .sidebar{width:220px;background:var(--bg2);border-right:1px solid var(--border);padding:20px 0;flex-shrink:0;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
 .sidebar::-webkit-scrollbar{width:4px}
 .sidebar::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
 .nav-section{padding:0 12px;margin-bottom:8px}
 .nav-label{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--text3);padding:0 8px;margin-bottom:6px;font-weight:600}
-.nav-btn{display:flex;align-items:center;justify-content:space-between;width:100%;padding:8px 10px;border-radius:6px;border:none;background:none;cursor:pointer;color:var(--text2);font-size:13px;font-family:'Source Sans 3',sans-serif;text-align:left;transition:all 0.15s}
+.nav-btn{display:flex;align-items:center;justify-content:space-between;width:100%;padding:8px 10px;border-radius:6px;border:none;background:none;cursor:pointer;color:var(--text2);font-size:13px;font-family:'Inter',sans-serif;text-align:left;transition:all 0.15s}
 .nav-btn:hover{background:var(--bg3);color:var(--text)}
-.nav-btn.active{background:var(--gold-dim);color:var(--gold2)}
+.nav-btn.active{background:var(--gold-light);color:var(--gold2);font-weight:500}
 .nav-btn .count{font-size:11px;background:var(--bg3);padding:1px 7px;border-radius:10px;color:var(--text3)}
-.nav-btn.active .count{background:rgba(201,168,76,0.2);color:var(--gold)}
+.nav-btn.active .count{background:var(--gold-mid);color:var(--gold)}
 .nav-divider{height:1px;background:var(--border);margin:12px 20px}
-.value-summary{padding:16px 20px;margin:8px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius)}
-.value-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);margin-bottom:4px}
+.value-summary{padding:14px 16px;margin:8px 12px;background:var(--gold-light);border:1px solid var(--gold-mid);border-radius:var(--radius)}
+.value-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:4px;font-weight:600}
 .value-num{font-family:'Playfair Display',serif;font-size:18px;color:var(--gold2)}
 .value-range{font-size:11px;color:var(--text3);margin-top:2px}
 
-/* ── MAIN ── */
+/* MAIN */
 .main-content{flex:1;padding:24px;overflow:hidden}
 .section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;gap:16px;flex-wrap:wrap}
 .section-title{font-family:'Playfair Display',serif;font-size:24px;color:var(--text);letter-spacing:-0.3px}
-.section-count{font-size:13px;color:var(--text3)}
-.filter-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.fchip{padding:5px 13px;border-radius:20px;font-size:12px;font-weight:500;cursor:pointer;border:1px solid var(--border);background:none;color:var(--text2);font-family:'Source Sans 3',sans-serif;transition:all 0.15s;white-space:nowrap}
-.fchip:hover{border-color:var(--border2);color:var(--text)}
-.fchip.active{background:var(--gold-dim);border-color:var(--gold);color:var(--gold2)}
-select.sort-sel{padding:5px 10px;border-radius:6px;border:1px solid var(--border);background:var(--bg3);font-size:12.5px;font-family:'Source Sans 3',sans-serif;color:var(--text2);cursor:pointer;outline:none}
+.section-count{font-size:13px;color:var(--text3);margin-top:2px}
+select.sort-sel{padding:7px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg2);font-size:12.5px;font-family:'Inter',sans-serif;color:var(--text2);cursor:pointer;outline:none;transition:border-color 0.15s}
+select.sort-sel:focus{border-color:var(--gold2)}
 
-/* ── STATS STRIP ── */
+/* STATS */
 .stats-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
-.stat{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px}
+.stat{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
 .stat-lbl{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);margin-bottom:6px;font-weight:600}
 .stat-val{font-family:'Playfair Display',serif;font-size:22px;color:var(--text);letter-spacing:-0.3px}
 .stat-sub{font-size:11px;color:var(--text3);margin-top:3px}
 .stat-val.gold{color:var(--gold2)}
 
-/* ── GRID VIEW ── */
-.items-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-.item-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:all 0.2s;position:relative}
+/* GRID */
+.items-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.item-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:all 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
 .item-card:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:var(--shadow)}
-.card-img{height:170px;background:var(--bg3);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.card-img-placeholder{display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--text3)}
-.card-img-placeholder svg{width:40px;height:40px;opacity:0.3}
-.card-img-placeholder span{font-size:11px;letter-spacing:1px;text-transform:uppercase}
-.card-type-badge{position:absolute;top:10px;left:10px;padding:3px 9px;border-radius:4px;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
-.badge-gun{background:rgba(201,168,76,0.2);color:var(--gold2);border:1px solid rgba(201,168,76,0.3)}
-.badge-vehicle{background:var(--blue-light);color:#7AAED4;border:1px solid rgba(74,110,140,0.3)}
+.card-img{height:200px;background:var(--bg3);position:relative;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s}
+.item-card:hover .card-img img{transform:scale(1.04)}
+.card-img-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--text3)}
+.card-img-placeholder svg{width:36px;height:36px;opacity:0.25}
+.card-img-placeholder span{font-size:11px;letter-spacing:1px;text-transform:uppercase;opacity:0.5}
+.card-type-badge{position:absolute;top:10px;left:10px;padding:3px 9px;border-radius:4px;font-size:10px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase}
+.badge-gun{background:rgba(139,105,20,0.15);color:var(--gold2);border:1px solid rgba(139,105,20,0.25)}
+.badge-vehicle{background:var(--blue-light);color:var(--blue);border:1px solid rgba(27,79,114,0.2)}
+.card-id{position:absolute;top:10px;right:10px;font-size:10px;font-family:'Source Code Pro',monospace;color:var(--text3);background:rgba(255,255,255,0.85);padding:2px 6px;border-radius:3px}
+.img-count{position:absolute;bottom:8px;right:8px;font-size:11px;color:#fff;background:rgba(0,0,0,0.45);padding:2px 7px;border-radius:3px;display:flex;align-items:center;gap:4px}
 .card-body{padding:14px 16px}
-.card-make{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
-.card-model{font-size:15px;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:6px}
+.card-make{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;font-weight:500}
+.card-model{font-size:15px;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:5px}
 .card-desc{font-size:12.5px;color:var(--text2);margin-bottom:10px;line-height:1.5}
 .card-footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:10px}
 .card-cal{font-size:11px;color:var(--text3);background:var(--bg3);padding:2px 8px;border-radius:4px;font-family:'Source Code Pro',monospace}
-.card-val{font-size:13px;font-weight:600;color:var(--gold)}
-.card-id{position:absolute;top:10px;right:10px;font-size:10px;font-family:'Source Code Pro',monospace;color:var(--text3);background:rgba(0,0,0,0.4);padding:2px 6px;border-radius:3px}
+.card-val{font-size:13px;font-weight:600;color:var(--gold2)}
 
-/* ── LIST VIEW ── */
-.items-list{display:flex;flex-direction:column;gap:1px;background:var(--border)}
-.list-header{display:grid;grid-template-columns:50px 1fr 140px 100px 100px 110px;gap:0;background:var(--bg2);padding:9px 16px;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);font-weight:600;cursor:pointer}
-.list-header span:hover{color:var(--text2)}
-.list-row{display:grid;grid-template-columns:50px 1fr 140px 100px 100px 110px;gap:0;background:var(--card);padding:12px 16px;align-items:center;cursor:pointer;transition:background 0.12s}
-.list-row:hover{background:var(--card2)}
-.list-num{font-family:'Source Code Pro',monospace;font-size:12px;color:var(--text3)}
-.list-info{}
+/* LIST */
+.items-list{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
+.list-header{display:grid;grid-template-columns:50px 60px 1fr 140px 100px 100px 120px;background:var(--bg3);padding:10px 16px;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);font-weight:600;border-bottom:1px solid var(--border)}
+.list-row{display:grid;grid-template-columns:50px 60px 1fr 140px 100px 100px 120px;padding:11px 16px;align-items:center;cursor:pointer;transition:background 0.1s;border-bottom:1px solid var(--border)}
+.list-row:last-child{border-bottom:none}
+.list-row:hover{background:var(--bg)}
+.list-thumb{width:44px;height:36px;border-radius:4px;overflow:hidden;background:var(--bg3);flex-shrink:0}
+.list-thumb img{width:100%;height:100%;object-fit:cover}
+.list-thumb-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--text3)}
+.list-thumb-placeholder svg{width:16px;height:16px;opacity:0.3}
+.list-num{font-family:'Source Code Pro',monospace;font-size:11.5px;color:var(--text3)}
 .list-make{font-size:11px;color:var(--text3)}
 .list-model{font-size:13.5px;font-weight:500;color:var(--text)}
 .list-cal{font-family:'Source Code Pro',monospace;font-size:12px;color:var(--text2)}
 .list-serial{font-family:'Source Code Pro',monospace;font-size:11.5px;color:var(--text3)}
-.list-type span{font-size:11px;font-weight:600;letter-spacing:0.5px;padding:2px 8px;border-radius:4px}
-.list-val{font-size:13px;font-weight:600;color:var(--gold);text-align:right}
+.list-type span{font-size:11px;font-weight:600;letter-spacing:0.5px;padding:3px 8px;border-radius:4px}
+.list-val{font-size:13px;font-weight:600;color:var(--gold2);text-align:right}
 
-/* ── DETAIL MODAL ── */
-.modal-overlay{position:fixed;inset:0;background:rgba(10,8,6,0.75);z-index:200;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.2s;padding:20px}
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(20,16,12,0.6);z-index:200;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.2s;padding:20px}
 .modal-overlay.open{opacity:1;pointer-events:all}
-.modal{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;width:600px;max-width:100%;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-lg);transform:scale(0.97);transition:transform 0.2s}
-.modal-overlay.open .modal{transform:scale(1)}
+.modal{background:var(--bg2);border:1px solid var(--border);border-radius:14px;width:640px;max-width:100%;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-lg);transform:scale(0.97) translateY(6px);transition:transform 0.2s}
+.modal-overlay.open .modal{transform:scale(1) translateY(0)}
 .modal::-webkit-scrollbar{width:4px}
 .modal::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
-.modal-header{padding:24px 28px 20px;border-bottom:1px solid var(--border);position:relative}
+
+/* GALLERY */
+.gallery{background:var(--bg3);border-bottom:1px solid var(--border)}
+.gallery-main{position:relative;height:320px;overflow:hidden}
+.gallery-main img{width:100%;height:100%;object-fit:contain;background:var(--bg3)}
+.gallery-main .no-img{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--text3)}
+.gallery-main .no-img svg{width:48px;height:48px;opacity:0.2}
+.gallery-thumbs{display:flex;gap:6px;padding:10px 12px;overflow-x:auto}
+.gallery-thumbs::-webkit-scrollbar{height:3px}
+.gallery-thumbs::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+.g-thumb{width:60px;height:50px;border-radius:4px;overflow:hidden;flex-shrink:0;cursor:pointer;border:2px solid transparent;transition:border-color 0.15s;background:var(--border)}
+.g-thumb.active{border-color:var(--gold2)}
+.g-thumb img{width:100%;height:100%;object-fit:cover}
+.gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.9);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text2);transition:all 0.15s;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+.gallery-nav:hover{background:#fff;color:var(--text)}
+.gallery-nav.prev{left:10px}
+.gallery-nav.next{right:10px}
+.gallery-nav svg{width:14px;height:14px}
+
+.modal-header{padding:20px 24px 16px;border-bottom:1px solid var(--border);position:relative}
 .modal-num{font-family:'Source Code Pro',monospace;font-size:11px;color:var(--text3);margin-bottom:4px}
-.modal-make{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:6px}
-.modal-model{font-family:'Playfair Display',serif;font-size:26px;color:var(--text);letter-spacing:-0.3px;line-height:1.2}
-.modal-close{position:absolute;top:20px;right:20px;width:32px;height:32px;border-radius:6px;border:1px solid var(--border);background:none;cursor:pointer;color:var(--text2);display:flex;align-items:center;justify-content:center;transition:all 0.15s}
+.modal-make{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold2);margin-bottom:5px;font-weight:600}
+.modal-model{font-family:'Playfair Display',serif;font-size:24px;color:var(--text);letter-spacing:-0.3px;line-height:1.2}
+.modal-close{position:absolute;top:18px;right:18px;width:32px;height:32px;border-radius:6px;border:1px solid var(--border);background:none;cursor:pointer;color:var(--text2);display:flex;align-items:center;justify-content:center;transition:all 0.15s}
 .modal-close:hover{background:var(--bg3);color:var(--text)}
-.modal-body{padding:24px 28px}
-.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
-.detail-item{}
-.detail-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);margin-bottom:4px;font-weight:600}
-.detail-val{font-size:14px;color:var(--text);font-weight:500}
-.detail-val.mono{font-family:'Source Code Pro',monospace;font-size:13px}
-.val-range-box{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin-bottom:16px;display:flex;gap:32px;align-items:center}
-.vrb-item{text-align:center}
-.vrb-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);margin-bottom:4px}
-.vrb-val{font-family:'Playfair Display',serif;font-size:22px}
+.modal-body{padding:20px 24px}
+.val-range-box{background:var(--gold-light);border:1px solid var(--gold-mid);border-radius:var(--radius);padding:16px 20px;margin-bottom:18px;display:flex;gap:0;align-items:center}
+.vrb-item{text-align:center;flex:1}
+.vrb-item+.vrb-item{border-left:1px solid var(--gold-mid)}
+.vrb-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:4px;font-weight:600}
+.vrb-val{font-family:'Playfair Display',serif;font-size:20px}
 .vrb-val.low{color:var(--text2)}
 .vrb-val.mid{color:var(--gold2)}
-.vrb-val.high{color:var(--gold3)}
-.notes-box{background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:14px 16px;font-size:13px;color:var(--text2);line-height:1.7}
+.vrb-val.high{color:var(--gold)}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.detail-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);margin-bottom:4px;font-weight:600}
+.detail-val{font-size:14px;color:var(--text);font-weight:500}
+.detail-val.mono{font-family:'Source Code Pro',monospace;font-size:13px;color:var(--text2)}
+.notes-box{background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--gold2);border-radius:0 var(--radius) var(--radius) 0;padding:14px 16px;font-size:13px;color:var(--text2);line-height:1.7}
 
-/* ── EMPTY ── */
+/* EMPTY */
 .empty{text-align:center;padding:64px 20px;color:var(--text3)}
-.empty svg{width:48px;height:48px;margin-bottom:12px;opacity:0.3}
+.empty svg{width:40px;height:40px;margin-bottom:12px;opacity:0.2}
 
-/* ── ANIMATIONS ── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .item-card,.list-row{animation:fadeUp 0.3s ease both}
 
-/* ── RESPONSIVE ── */
 @media(max-width:900px){
   .sidebar{display:none}
   .stats-strip{grid-template-columns:1fr 1fr}
-  .list-header,.list-row{grid-template-columns:40px 1fr 100px 90px}
+  .list-header,.list-row{grid-template-columns:40px 1fr 90px 80px}
 }
 @media(max-width:600px){
-  .site-header{padding:0 16px}
-  .search-box{width:180px}
+  .site-header{padding:0 16px;gap:12px}
+  .search-box{width:160px}
   .main-content{padding:16px}
   .stats-strip{grid-template-columns:1fr 1fr}
   .detail-grid{grid-template-columns:1fr}
@@ -178,7 +197,6 @@ select.sort-sel{padding:5px 10px;border-radius:6px;border:1px solid var(--border
 </head>
 <body>
 
-<!-- HEADER -->
 <header class="site-header">
   <div class="header-logo">Hughes Estate <span>Private Collection</span></div>
   <div class="header-spacer"></div>
@@ -197,20 +215,12 @@ select.sort-sel{padding:5px 10px;border-radius:6px;border:1px solid var(--border
 </header>
 
 <div class="page">
-
-<!-- SIDEBAR -->
 <aside class="sidebar">
   <div class="nav-section">
-    <div class="nav-label">Categories</div>
-    <button class="nav-btn active" onclick="setType('all',this)">
-      All Items <span class="count" id="cnt-all">0</span>
-    </button>
-    <button class="nav-btn" onclick="setType('Gun',this)">
-      Firearms <span class="count" id="cnt-gun">0</span>
-    </button>
-    <button class="nav-btn" onclick="setType('Vehicle',this)">
-      Vehicles <span class="count" id="cnt-vehicle">0</span>
-    </button>
+    <div class="nav-label">Browse</div>
+    <button class="nav-btn active" onclick="setType('all',this)">All Items <span class="count" id="cnt-all">0</span></button>
+    <button class="nav-btn" onclick="setType('Gun',this)">Firearms <span class="count" id="cnt-gun">0</span></button>
+    <button class="nav-btn" onclick="setType('Vehicle',this)">Vehicles <span class="count" id="cnt-vehicle">0</span></button>
   </div>
   <div class="nav-divider"></div>
   <div class="nav-section">
@@ -230,135 +240,110 @@ select.sort-sel{padding:5px 10px;border-radius:6px;border:1px solid var(--border
   </div>
 </aside>
 
-<!-- MAIN -->
 <main class="main-content">
-  <!-- STATS -->
   <div class="stats-strip">
-    <div class="stat">
-      <div class="stat-lbl">Total Items</div>
-      <div class="stat-val" id="s-total">49</div>
-      <div class="stat-sub">Firearms + Vehicles</div>
-    </div>
-    <div class="stat">
-      <div class="stat-lbl">Firearms</div>
-      <div class="stat-val" id="s-guns">43</div>
-      <div class="stat-sub">Across all categories</div>
-    </div>
-    <div class="stat">
-      <div class="stat-lbl">Est. Value (Mid)</div>
-      <div class="stat-val gold" id="s-value">—</div>
-      <div class="stat-sub">Average of low/high</div>
-    </div>
-    <div class="stat">
-      <div class="stat-lbl">High Estimate</div>
-      <div class="stat-val gold" id="s-high">—</div>
-      <div class="stat-sub">Best-case total</div>
-    </div>
+    <div class="stat"><div class="stat-lbl">Total Items</div><div class="stat-val" id="s-total">49</div><div class="stat-sub">Firearms + Vehicles</div></div>
+    <div class="stat"><div class="stat-lbl">Firearms</div><div class="stat-val" id="s-guns">43</div><div class="stat-sub">Across all categories</div></div>
+    <div class="stat"><div class="stat-lbl">Est. Value (Mid)</div><div class="stat-val gold" id="s-value">—</div><div class="stat-sub">Average of low / high</div></div>
+    <div class="stat"><div class="stat-lbl">High Estimate</div><div class="stat-val gold" id="s-high">—</div><div class="stat-sub">Best-case total</div></div>
   </div>
-
-  <!-- SECTION HEAD -->
   <div class="section-head">
     <div>
       <div class="section-title" id="section-title">Full Collection</div>
       <div class="section-count" id="section-count"></div>
     </div>
-    <div class="filter-row">
-      <select class="sort-sel" id="sort-sel" onchange="render()">
-        <option value="id">Sort: Item #</option>
-        <option value="make">Sort: Make A–Z</option>
-        <option value="val_high">Sort: Value High–Low</option>
-        <option value="val_low">Sort: Value Low–High</option>
-        <option value="model">Sort: Model A–Z</option>
-      </select>
-    </div>
+    <select class="sort-sel" id="sort-sel" onchange="render()">
+      <option value="id">Sort: Item #</option>
+      <option value="make">Sort: Make A–Z</option>
+      <option value="val_high">Sort: Value High–Low</option>
+      <option value="val_low">Sort: Value Low–High</option>
+      <option value="model">Sort: Model A–Z</option>
+    </select>
   </div>
-
-  <!-- ITEMS -->
   <div id="items-container"></div>
 </main>
 </div>
 
-<!-- DETAIL MODAL -->
+<!-- MODAL -->
 <div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
   <div class="modal" id="modal-content"></div>
 </div>
 
 <script>
 const ITEMS = [
-  {id:"001",type:"Gun",subtype:"Rifle",serial:"D03517",make:"Bushmaster Firearms",model:"Carbon-15 Pistol",caliber:".223 / 5.56mm",desc:"Pistol-configuration short AR in 5.56",val_low:650,val_high:800,notes:"Carbon-15 polymer lower; value perception often lower than aluminum ARs. Condition and accessories heavily influence price. Local VA/SC private sales typically mid-range."},
-  {id:"002",type:"Gun",subtype:"Rifle",serial:"17034396",make:"Anderson Manufacturing",model:"Anderson AM-15 Pistol Build",caliber:".223 / 5.56mm",desc:"Custom pistol-configuration AR build",val_low:750,val_high:850,notes:"Value depends heavily on: barrel length/caliber, optic brand (major swing), upper receiver brand, brace legality, and quality of assembly."},
-  {id:"003",type:"Gun",subtype:"Rifle",serial:"Unknown",make:"Marlin or Mossberg",model:"X7 or ATR",caliber:".308",desc:"Mid-tier bolt-action hunting rifle",val_low:300,val_high:550,notes:"Budget-to-mid tier scope, polymer stock, heavy barrel with thread protector. North Haven CT markings suggest Marlin/Mossberg origins. Serial number unknown."},
-  {id:"004",type:"Gun",subtype:"Black Powder",serial:"Unknown",make:"Colt 1858 / Remington Style",model:"Black Powder Revolver Carbine",caliber:"Black Powder",desc:"Cap-and-ball revolving rifle with shoulder stock",val_low:350,val_high:500,notes:"Percussion cap system, cylinder-fed. Octagonal/round long barrel, brass frame and trigger guard, wood stock. Not a modern cartridge firearm."},
-  {id:"005",type:"Gun",subtype:"Pistol",serial:"HDV4438",make:"Smith & Wesson",model:"M&P Shield .45",caliber:".45 ACP",desc:"Compact M&P Shield with laser module",val_low:350,val_high:520,notes:"M&P logo on grip, slim Shield profile, .45 S&W / .45 AUTO marked slide, polymer frame + stainless slide. Integrated laser module under trigger guard."},
-  {id:"006",type:"Gun",subtype:"Pistol",serial:"NU005541",make:"Beretta",model:"BU9 Nano",caliber:"9mm",desc:"Deep concealed carry, discontinued model",val_low:275,val_high:400,notes:"~3\" barrel, 6 or 8-round capacity, striker-fired. Produced ~2011–2018, now discontinued and replaced by APX Carry. Good pocket/deep carry pistol."},
-  {id:"007",type:"Gun",subtype:"Pistol",serial:"BY179108",make:"Springfield Armory",model:"Hellcat OSP",caliber:"9mm",desc:"Micro-compact with RMSx optic",val_low:550,val_high:750,notes:"11-round flush / 13-round extended mag. One of first micro-compacts with high capacity in tiny footprint. OSP = optic-ready; RMSx typically adds $150–250 value."},
-  {id:"009",type:"Gun",subtype:"Rifle",serial:"785683",make:"Remington",model:"Model 7 .300 Blackout",caliber:".300 BLK",desc:"Suppressor-ready lightweight bolt-action",val_low:650,val_high:900,notes:"~6–6.5 lb compact hunting rifle, 16.5\"–18\" barrel. Fast handling in tight terrain. Suppressor-ready configuration ideal for subsonic .300 BLK."},
-  {id:"010",type:"Gun",subtype:"Rifle",serial:"MVP09130",make:"O.F. Mossberg & Sons",model:"Mossberg MVP Patrol",caliber:"7.62 NATO / .308",desc:"Patrol-style bolt-action with Vortex LPVO",val_low:550,val_high:850,notes:"Heavy/medium contour ~16–18\" barrel, threaded muzzle, Vortex Crossfire II 1–4x24 LPVO, full Picatinny rail. Accepts AR-10 magazines."},
-  {id:"011",type:"Gun",subtype:"Shotgun",serial:"731562",make:"Winchester",model:"Model 1897",caliber:"12 Gauge",desc:"Antique pump-action shotgun, ca. 1913–1915",val_low:500,val_high:900,notes:"External hammer, pump-action (slide action). Very clean condition, likely refinished. Manufactured circa 1913–1915. A true piece of American firearms history."},
-  {id:"012",type:"Gun",subtype:"Shotgun",serial:"N/A",make:"Huglu / CZ",model:"Coach Gun (Sharp-tail)",caliber:"12 Gauge",desc:"Double-barrel side-by-side coach gun",val_low:550,val_high:750,notes:"Turkish manufacture (Huglu Cooperative), imported under CZ. Known for solid build quality at price point. Attractive wood and finish relative to cost."},
-  {id:"013",type:"Gun",subtype:"Air",serial:"44355",make:"RWS / Diana",model:"Model 75",caliber:".177",desc:"High-end German precision target air rifle",val_low:700,val_high:900,notes:"Spring-piston with sidelever cocking, competition-grade. Target wooden stock with adjustable geometry, flat fore-end, vent cutouts, front hand-stop block."},
-  {id:"014",type:"Gun",subtype:"Air",serial:"N/A",make:"Steyr Mannlicher",model:"LG-10 Stabilizer",caliber:".177",desc:"Olympic PCP target air rifle with stabilizer",val_low:1200,val_high:1500,notes:"PCP system, STABILISATOR internal counterweight reduces micro-movement. Laminated wood adjustable competition stock, rear diopter + front globe sights. Olympic-class precision."},
-  {id:"015",type:"Gun",subtype:"Rifle",serial:"E6567614",make:"Remington",model:"Model 700 SPS Tactical",caliber:".308 Win",desc:"Precision tactical bolt-action with suppressor setup",val_low:600,val_high:900,notes:"Heavy/varmint contour barrel, matte finish, Hogue overmolded stock, aftermarket Picatinny rail. Set up with AAC suppressor (Item 044). Threaded barrel."},
-  {id:"016",type:"Gun",subtype:"Rifle",serial:"066550B",make:"Remington",model:"Model 700 40-X",caliber:".338 RUM",desc:"Custom shop long-range precision rifle",val_low:1300,val_high:1800,notes:"Remington's custom shop / target-grade platform. Stainless heavy contour barrel, adjustable tactical stock with cheek riser, SNIPER-branded scope, 20 MOA Picatinny rail."},
-  {id:"017",type:"Gun",subtype:"Rifle",serial:"L251422",make:"Bushmaster Firearms",model:"XM15-E2S Match",caliber:".223 / 5.56mm",desc:"National Match / High Power competition AR",val_low:900,val_high:1400,notes:"Heavy stainless match barrel in free-float tube, flat-top upper, competition rear sight assembly, adjustable buttplate for prone/bench shooting. Configured for iron-sight competition."},
-  {id:"018",type:"Gun",subtype:"Pistol",serial:"1303511",make:"High Standard",model:"Supermatic Citation Model 103",caliber:".22 LR",desc:"NRA bullseye competition target pistol, 1950s–60s",val_low:900,val_high:1300,notes:"Produced 1950s–1960s. Extremely light, crisp trigger; exceptional accuracy; interchangeable barrels. Competed directly with Colt Woodsman and S&W Model 41."},
-  {id:"019",type:"Gun",subtype:"Pistol",serial:"NM131782",make:"Kimber",model:"Rimfire Target (Springfield frame)",caliber:".22 LR",desc:"1911 platform target pistol",val_low:900,val_high:1200,notes:"Kimber .22 LR top end on Springfield-marked frame. Adjustable rear target sight, match trigger, two-tone finish (stainless frame + black slide), checkered front strap, custom wood grips."},
-  {id:"020",type:"Gun",subtype:"Pistol",serial:"RF03190",make:"Randall",model:"Service Model",caliber:".45 ACP",desc:"All-stainless 1911, USA-made in Sun Valley CA",val_low:900,val_high:1300,notes:"Randall Made in U.S.A., Sun Valley, CA. All stainless construction, adjustable rear sight, GI-style hammer, classic 1911 controls, black checkered Randall-branded grips."},
-  {id:"021",type:"Gun",subtype:"Revolver",serial:"Unknown",make:"Smith & Wesson",model:"Model 460 X-Frame",caliber:".460 S&W Magnum",desc:"Massive X-Frame revolver with compensated barrel",val_low:1200,val_high:1600,notes:"Largest S&W frame. Compensated barrel reduces extreme recoil/muzzle rise. Swing-out cylinder with long chambers, fiber optic red front sight, rubber finger-groove grip."},
-  {id:"022",type:"Gun",subtype:"Pistol",serial:"37B011064",make:"SIG Sauer",model:"P220 Combat",caliber:".45 ACP",desc:"Modernized P220 with threaded barrel and rail",val_low:900,val_high:1200,notes:"Threaded barrel + thread protector, dust cover rail for light/laser, DA/SA trigger with decocker, G10 grips. Single-stack 8-round magazine. Modernized variant of classic P220."},
-  {id:"023",type:"Gun",subtype:"Black Powder",serial:"D00116",make:"F.lli Pietta",model:"1851 Navy",caliber:".44 Black Powder",desc:"Italian reproduction cap-and-ball revolver",val_low:225,val_high:300,notes:"Engraved cylinder (naval battle scene), loading lever under barrel, brass trigger guard, wood grip. Bluing good with minor wear, brass with mild patina. Loads from front of cylinder."},
-  {id:"024",type:"Gun",subtype:"Pistol",serial:"DUP1951",make:"Smith & Wesson",model:"M&P 45",caliber:"9mm",desc:"Full-size M&P striker-fired pistol",val_low:450,val_high:550,notes:"Polymer frame, striker-fired system, steel slide with Melonite finish, M&P ergonomics with interchangeable backstraps, standard 3-dot sights."},
-  {id:"025",type:"Gun",subtype:"Pistol",serial:"KO73780",make:"Kimber",model:"Classic Stainless Gold Match",caliber:".45 ACP",desc:"Match-grade 1911 with adjustable sights",val_low:900,val_high:1200,notes:"All brushed stainless construction. Match-grade barrel, fitted bushing, tuned trigger (~4–5 lb), adjustable rear sight. Premium Kimber target configuration."},
-  {id:"026",type:"Gun",subtype:"Pistol",serial:"K13884",make:"Kimber",model:"Stainless Target II",caliber:".45 ACP",desc:"Stainless 1911 target model",val_low:750,val_high:950,notes:"Brushed stainless frame & slide, adjustable rear sight, skeletonized aluminum trigger, beavertail grip safety, extended thumb safety, checkered double-diamond wood grips."},
-  {id:"027",type:"Gun",subtype:"Pistol",serial:"AOA33394",make:"Auto-Ordnance",model:"1911A1 GI",caliber:".45 ACP",desc:"WWII-era M1911A1 replica",val_low:400,val_high:550,notes:"Intentional WWII M1911A1 service pistol replica. GI sights, spur hammer, short grip safety, flat mainspring housing, Parkerized/matte finish mimicking military phosphate."},
-  {id:"028",type:"Gun",subtype:"Pistol",serial:"GAO140",make:"Kahr",model:"MK9",caliber:"9mm",desc:"All-steel subcompact DAO pistol",val_low:500,val_high:650,notes:"All-steel construction, ~3\" barrel, 6–7 round capacity. DAO trigger (long smooth revolver-like pull), no external safety. Designed for concealed/ankle carry."},
-  {id:"029",type:"Gun",subtype:"Pistol",serial:"AR2613",make:"Kahr",model:"K9",caliber:"9mm",desc:"All-steel compact DAO pistol",val_low:400,val_high:525,notes:"All stainless steel, longer grip than MK9 (7–8 rounds), DAO trigger, minimalist design with low-profile controls. Snag-free lines for concealed carry."},
-  {id:"030",type:"Gun",subtype:"Pistol",serial:"371467970",make:"Ruger",model:"LCP",caliber:".380 ACP",desc:"Ultra-compact pocket carry pistol",val_low:250,val_high:325,notes:"~2.75\" barrel, extremely thin profile, polymer frame. Aftermarket red trigger (shorter reset or lighter pull). No external safety on this variant. Deep concealment design."},
-  {id:"031",type:"Gun",subtype:"Revolver",serial:"CRN2280",make:"Smith & Wesson",model:"Model 317 AirLite",caliber:".22 LR",desc:"8-shot J-frame lightweight revolver",val_low:550,val_high:700,notes:"AirLite silver alloy frame, .22 LR CTG marked barrel, 8-shot cylinder, fiber optic red front sight, rubber combat grip. Extremely lightweight carry/trainer revolver."},
-  {id:"032",type:"Gun",subtype:"Revolver",serial:"CST7730",make:"Smith & Wesson",model:"Model 60",caliber:".357 Magnum",desc:"J-frame stainless snub-nose revolver",val_low:650,val_high:800,notes:"Stainless steel J-frame, 5-shot cylinder, ~2–3\" snub nose barrel, exposed hammer allowing both SA and DA fire. Compact concealed carry or backup gun."},
-  {id:"033",type:"Gun",subtype:"Pistol",serial:"HUP0259",make:"Smith & Wesson",model:"M&P Shield Gen 1",caliber:"9mm",desc:"Single-stack slim concealed carry",val_low:300,val_high:375,notes:"Slim single-stack profile, polymer frame, striker-fired, Gen 1 hinged trigger. No thumb safety variant (more desirable). Classic IWB carry configuration."},
-  {id:"034",type:"Gun",subtype:"Revolver",serial:"UG7934",make:"Taylor's & Co.",model:"1873 Cattleman",caliber:".45 Colt",desc:"Uberti-made Single Action Army reproduction",val_low:600,val_high:800,notes:"U.S. imported, Uberti (Italy) manufactured. High-quality historical SAA reproduction, strong reputation in Cowboy Action Shooting (CAS) and Western collecting."},
-  {id:"035",type:"Gun",subtype:"Revolver",serial:"UG4555",make:"Taylor's & Co.",model:"1873 Smoke Wagon",caliber:".45 Colt",desc:"7.5\" cavalry SAA with premium finish",val_low:750,val_high:1000,notes:"7.5\" cavalry-length barrel, better case hardening/color variation, well-polished cylinder and barrel. Premium Taylor's trim level, likely tuned action. Cowboy Action Shooting ready."},
-  {id:"036",type:"Gun",subtype:"Pistol",serial:"28257",make:"Beretta",model:"Model 1951 Brigadier",caliber:"9mm",desc:"Pre-92 series steel-frame Beretta",val_low:600,val_high:800,notes:"Direct predecessor to Beretta 92/M9. Steel frame (heavier/more durable than later alloy), heel magazine release, 8-round capacity, open-top slide design with locking block."},
-  {id:"037",type:"Gun",subtype:"Revolver",serial:"G48018",make:"North American Arms",model:"Mini-Revolver",caliber:".22 LR",desc:"5-shot stainless pocket mini-revolver",val_low:225,val_high:300,notes:"North American Arms Inc., Provo, UT. Single-action, 5-shot cylinder, stainless steel, small wood grip panels, short barrel. Provo Utah markings confirmed."},
-  {id:"038",type:"Gun",subtype:"Pistol",serial:"390-56153",make:"Ruger",model:"22/45 Lite",caliber:".22 LR",desc:"Lightweight target pistol for competition/suppressor",val_low:600,val_high:750,notes:"Ruger Mark-series lightweight variant with 1911-style grip angle. Designed for target shooting, Steel Challenge competition, and suppressor use."},
-  {id:"039",type:"Gun",subtype:"Pistol",serial:"T20941",make:"AMT",model:".22 LR Target Pistol",caliber:".22 LR",desc:"Fixed-barrel target pistol with optic",val_low:275,val_high:400,notes:"Fixed barrel (improves accuracy), 1911-style grip angle, adjustable rear sight, tube-style red dot/pistol scope mounted. High Standard-pattern design, Mitchell-marketed."},
-  {id:"040",type:"Gun",subtype:"Pistol",serial:"ASF39080",make:"Colt",model:"Officer's ACP",caliber:".45 ACP",desc:"Compact 1911 with upgrades",val_low:800,val_high:1050,notes:"Classic Colt blued carbon steel, Series 80. Compact grip for concealment. Upgraded: skeletonized trigger, extended beavertail, likely commander-style hammer, custom grips."},
-  {id:"041",type:"Gun",subtype:"Pistol",serial:"B18714",make:"Smith & Wesson",model:"Model 61 Escort",caliber:".22 LR",desc:"Early S&W pocket pistol",val_low:300,val_high:450,notes:"~2\" barrel, very compact, alloy frame, DA/SA operation, 7-round magazine. True early pocket pistol from S&W. Collectible vintage piece."},
-  {id:"042",type:"Gun",subtype:"Pistol",serial:"WB051483",make:"Walther",model:"PK380",caliber:".380 ACP",desc:"Polymer DA/SA with rail",val_low:325,val_high:425,notes:"Polymer frame, DA/SA with slide-mounted safety/decocker, Walther's ergonomic grip. Underbarrel rail for light/laser. Reliable and comfortable mid-size carry."},
-  {id:"043",type:"Gun",subtype:"Pistol",serial:"4042MR",make:"Colt",model:"Gold Cup National Match",caliber:".45 ACP",desc:"Classic blued 1911 target pistol",val_low:1100,val_high:1500,notes:"Scaled Government/National Match configuration. Alloy frame, steel slide, blued finish with handling wear. Classic Colt wood grips with medallions. 7-round magazine."},
-  {id:"101",type:"Vehicle",subtype:"Truck",serial:"1FTFW1E12JFE01287",make:"Ford",model:"F-150",caliber:"2018",desc:"2018 Ford F-150 pickup truck",val_low:30152,val_high:32852,notes:"Higher value with: Lariat/King Ranch/Platinum trim, low miles (<60K), FX4/tow/tech packages, excellent condition. Lower if: XL/base trim, high miles (>120K), accidents or wear."},
-  {id:"102",type:"Vehicle",subtype:"Motorcycle",serial:"4MZDX03D77DJ70254",make:"Buell",model:"(Model Unknown)",caliber:"2007",desc:"2007 Buell motorcycle, exceptionally low miles",val_low:5500,val_high:8500,notes:"Typical 2007 Buell has 10K–25K miles; under 2K is exceptionally rare. Collectors pay premium for original condition, unmodified bikes, clean plastics and no corrosion. 'Time capsule' bike."},
-  {id:"103",type:"Vehicle",subtype:"Car",serial:"3FA6P0HR4DR167059",make:"Ford",model:"Fusion SE",caliber:"2013",desc:"2013 Ford Fusion SE, low mileage",val_low:8500,val_high:12000,notes:"13 years old but ~70K miles below average. 2013 redesign still looks current, good fuel economy. Low miles likely add $2K–$4K premium vs typical market comps."},
-  {id:"104",type:"Vehicle",subtype:"Car",serial:"GHN5UB239326G",make:"MG",model:"MGB Roadster",caliber:"1971",desc:"1971 MGB Convertible",val_low:6000,val_high:12000,notes:"Value driven by: rust-free body (THE biggest factor — floors, rockers, frame rails), original chrome bumpers, clean interior, runs well, documentation. Pre-1974 cars preferred for chrome bumpers."},
-  {id:"105",type:"Vehicle",subtype:"Car",serial:"1JCCF87A7ET039107",make:"Jeep",model:"CJ7",caliber:"1984",desc:"1984 Jeep CJ7",val_low:10000,val_high:18000,notes:"Last true simple Jeep with huge aftermarket support and strong collector demand. Key factors: rust-free frame (most critical), solid tub, original or clean drivetrain, runs and drives well."},
-  {id:"106",type:"Vehicle",subtype:"Motorcycle",serial:"3E45559H6",make:"Harley-Davidson",model:"FLH Electra Glide",caliber:"1976",desc:"1976 Shovelhead Electra Glide, Bicentennial year",val_low:6000,val_high:10000,notes:"Pre-Evo era Shovelhead, highly collectible. 1976 = Bicentennial year adds desirability. Rising values over time. Original paint/parts, matching numbers, low owners, running well all drive value up."},
-  {id:"107",type:"Vehicle",subtype:"Motorcycle",serial:"3H500302",make:"Yamaha",model:"XS-series 1100cc",caliber:"1980",desc:"1980 Yamaha XS 1100cc",val_low:500,val_high:2000,notes:"Higher end ($1,200–$2,000): clean title, solid frame, mostly complete, desirable model (XS650 = strong demand), good cosmetics. Lower end: missing parts, rust, electrical issues, engine failure."},
+  {id:"001",type:"Gun",subtype:"Rifle",serial:"D03517",make:"Bushmaster Firearms",model:"Carbon-15 Pistol",caliber:".223 / 5.56mm",desc:"Pistol-configuration short AR in 5.56",val_low:650,val_high:800,images:["IMG_001a.jpeg","IMG_001b.jpeg","IMG_001-c.jpeg"],notes:"Carbon-15 polymer lower; value perception often lower than aluminum ARs. Condition and accessories heavily influence price. Local VA/SC private sales typically mid-range."},
+  {id:"002",type:"Gun",subtype:"Rifle",serial:"17034396",make:"Anderson Manufacturing",model:"Anderson AM-15 Pistol Build",caliber:".223 / 5.56mm",desc:"Custom pistol-configuration AR build",val_low:750,val_high:850,images:["IMG_002a.jpeg","IMG_002b.jpeg"],notes:"Value depends heavily on: barrel length/caliber, optic brand, upper receiver brand, brace legality, and quality of assembly."},
+  {id:"003",type:"Gun",subtype:"Rifle",serial:"Unknown",make:"Marlin or Mossberg",model:"X7 or ATR",caliber:".308",desc:"Mid-tier bolt-action hunting rifle",val_low:300,val_high:550,images:["IMG_003a.jpeg","IMG_003b.jpeg","IMG_003c.jpeg"],notes:"Budget-to-mid tier scope, polymer stock, heavy barrel with thread protector. North Haven CT markings suggest Marlin/Mossberg origins."},
+  {id:"004",type:"Gun",subtype:"Black Powder",serial:"Unknown",make:"Colt 1858 / Remington Style",model:"Black Powder Revolver Carbine",caliber:"Black Powder",desc:"Cap-and-ball revolving rifle with shoulder stock",val_low:350,val_high:500,images:["IMG_004a.jpeg","IMG_004b.jpeg","IMG_004c.jpeg"],notes:"Percussion cap system, cylinder-fed. Octagonal/round long barrel, brass frame and trigger guard, wood stock. Not a modern cartridge firearm."},
+  {id:"005",type:"Gun",subtype:"Pistol",serial:"HDV4438",make:"Smith & Wesson",model:"M&P Shield .45",caliber:".45 ACP",desc:"Compact M&P Shield with laser module",val_low:350,val_high:520,images:["IMG_005a.jpeg","IMG_005b.jpeg"],notes:"M&P logo on grip, slim Shield profile, .45 S&W / .45 AUTO marked slide, polymer frame + stainless slide. Integrated laser module under trigger guard."},
+  {id:"006",type:"Gun",subtype:"Pistol",serial:"NU005541",make:"Beretta",model:"BU9 Nano",caliber:"9mm",desc:"Deep concealed carry, discontinued model",val_low:275,val_high:400,images:["IMG_006a.jpeg","IMG_006b.jpeg"],notes:"~3\" barrel, 6 or 8-round capacity, striker-fired. Produced ~2011–2018, now discontinued and replaced by APX Carry."},
+  {id:"007",type:"Gun",subtype:"Pistol",serial:"BY179108",make:"Springfield Armory",model:"Hellcat OSP",caliber:"9mm",desc:"Micro-compact with RMSx optic",val_low:550,val_high:750,images:["IMG_007a.jpeg","IMG_007b.jpeg"],notes:"11-round flush / 13-round extended mag. One of first micro-compacts with high capacity in tiny footprint. OSP = optic-ready."},
+  {id:"009",type:"Gun",subtype:"Rifle",serial:"785683",make:"Remington",model:"Model 7 .300 Blackout",caliber:".300 BLK",desc:"Suppressor-ready lightweight bolt-action",val_low:650,val_high:900,images:["IMG_009a.jpeg","IMG_009b.jpeg"],notes:"~6–6.5 lb compact hunting rifle, 16.5\"–18\" barrel. Fast handling in tight terrain. Suppressor-ready configuration."},
+  {id:"010",type:"Gun",subtype:"Rifle",serial:"MVP09130",make:"O.F. Mossberg & Sons",model:"Mossberg MVP Patrol",caliber:"7.62 NATO / .308",desc:"Patrol-style bolt-action with Vortex LPVO",val_low:550,val_high:850,images:["IMG_010a.jpeg","IMG_010b.jpeg","IMG_010c.jpeg"],notes:"Heavy/medium contour ~16–18\" barrel, threaded muzzle, Vortex Crossfire II 1–4x24 LPVO, full Picatinny rail. Accepts AR-10 magazines."},
+  {id:"011",type:"Gun",subtype:"Shotgun",serial:"731562",make:"Winchester",model:"Model 1897",caliber:"12 Gauge",desc:"Antique pump-action shotgun, ca. 1913–1915",val_low:500,val_high:900,images:["IMG_011a.jpeg","IMG_011b.jpeg"],notes:"External hammer, pump-action. Very clean condition, likely refinished. Manufactured circa 1913–1915. A true piece of American firearms history."},
+  {id:"012",type:"Gun",subtype:"Shotgun",serial:"N/A",make:"Huglu / CZ",model:"Coach Gun (Sharp-tail)",caliber:"12 Gauge",desc:"Double-barrel side-by-side coach gun",val_low:550,val_high:750,images:["IMG_012a.jpeg","IMG_012b.jpeg"],notes:"Turkish manufacture (Huglu Cooperative), imported under CZ. Solid build quality at price point."},
+  {id:"013",type:"Gun",subtype:"Air",serial:"44355",make:"RWS / Diana",model:"Model 75",caliber:".177",desc:"High-end German precision target air rifle",val_low:700,val_high:900,images:["IMG_013a.jpeg","IMG_013b.jpeg"],notes:"Spring-piston with sidelever cocking, competition-grade. Target wooden stock with adjustable geometry, flat fore-end, vent cutouts, front hand-stop block."},
+  {id:"014",type:"Gun",subtype:"Air",serial:"N/A",make:"Steyr Mannlicher",model:"LG-10 Stabilizer",caliber:".177",desc:"Olympic PCP target air rifle with stabilizer",val_low:1200,val_high:1500,images:["IMG_014a.jpeg","IMG_014b.jpeg"],notes:"PCP system, STABILISATOR internal counterweight reduces micro-movement. Laminated wood adjustable competition stock, rear diopter + front globe sights. Olympic-class precision."},
+  {id:"015",type:"Gun",subtype:"Rifle",serial:"E6567614",make:"Remington",model:"Model 700 SPS Tactical",caliber:".308 Win",desc:"Precision tactical bolt-action with suppressor setup",val_low:600,val_high:900,images:["IMG_015a.jpeg","IMG_015b.jpeg","IMG_015c.jpeg"],notes:"Heavy/varmint contour barrel, Hogue overmolded stock, aftermarket Picatinny rail. Set up with AAC suppressor. Threaded barrel."},
+  {id:"016",type:"Gun",subtype:"Rifle",serial:"066550B",make:"Remington",model:"Model 700 40-X",caliber:".338 RUM",desc:"Custom shop long-range precision rifle",val_low:1300,val_high:1800,images:["IMG_016a.jpeg","IMG_016b.jpeg"],notes:"Remington custom shop / target-grade platform. Stainless heavy contour barrel, adjustable tactical stock with cheek riser, SNIPER-branded scope, 20 MOA Picatinny rail."},
+  {id:"017",type:"Gun",subtype:"Rifle",serial:"L251422",make:"Bushmaster Firearms",model:"XM15-E2S Match",caliber:".223 / 5.56mm",desc:"National Match / High Power competition AR",val_low:900,val_high:1400,images:["IMG_017a.jpeg","IMG_017b.jpeg"],notes:"Heavy stainless match barrel in free-float tube, flat-top upper, competition rear sight assembly, adjustable buttplate. Configured for iron-sight competition."},
+  {id:"018",type:"Gun",subtype:"Pistol",serial:"1303511",make:"High Standard",model:"Supermatic Citation Model 103",caliber:".22 LR",desc:"NRA bullseye competition target pistol, 1950s–60s",val_low:900,val_high:1300,images:["IMG_018a.jpeg","IMG_018b.jpeg"],notes:"Produced 1950s–1960s. Extremely light, crisp trigger; exceptional accuracy; interchangeable barrels. Competed directly with Colt Woodsman and S&W Model 41."},
+  {id:"019",type:"Gun",subtype:"Pistol",serial:"NM131782",make:"Kimber",model:"Rimfire Target (Springfield frame)",caliber:".22 LR",desc:"1911 platform target pistol",val_low:900,val_high:1200,images:["IMG_019a.jpeg","IMG_019b.jpeg"],notes:"Kimber .22 LR top end on Springfield-marked frame. Adjustable rear target sight, match trigger, two-tone finish, checkered front strap, custom wood grips."},
+  {id:"020",type:"Gun",subtype:"Pistol",serial:"RF03190",make:"Randall",model:"Service Model",caliber:".45 ACP",desc:"All-stainless 1911, USA-made in Sun Valley CA",val_low:900,val_high:1300,images:["IMG_020a.jpeg","IMG_020b.jpeg"],notes:"Randall Made in U.S.A., Sun Valley, CA. All stainless construction, adjustable rear sight, GI-style hammer, classic 1911 controls, Randall-branded grips."},
+  {id:"021",type:"Gun",subtype:"Revolver",serial:"Unknown",make:"Smith & Wesson",model:"Model 460 X-Frame",caliber:".460 S&W Magnum",desc:"Massive X-Frame revolver with compensated barrel",val_low:1200,val_high:1600,images:["IMG_021a.jpeg","IMG_021b.jpeg"],notes:"Largest S&W frame. Compensated barrel reduces extreme recoil/muzzle rise. Swing-out cylinder, fiber optic red front sight, rubber finger-groove grip."},
+  {id:"022",type:"Gun",subtype:"Pistol",serial:"37B011064",make:"SIG Sauer",model:"P220 Combat",caliber:".45 ACP",desc:"Modernized P220 with threaded barrel and rail",val_low:900,val_high:1200,images:["IMG_022a.jpeg","IMG_022b.jpeg"],notes:"Threaded barrel + thread protector, dust cover rail, DA/SA trigger with decocker, G10 grips. Single-stack 8-round magazine."},
+  {id:"023",type:"Gun",subtype:"Black Powder",serial:"D00116",make:"F.lli Pietta",model:"1851 Navy",caliber:".44 Black Powder",desc:"Italian reproduction cap-and-ball revolver",val_low:225,val_high:300,images:["IMG_023a.jpeg","IMG_023b.jpeg"],notes:"Engraved cylinder (naval battle scene), loading lever under barrel, brass trigger guard, wood grip. Good bluing with minor wear, brass with mild patina."},
+  {id:"024",type:"Gun",subtype:"Pistol",serial:"DUP1951",make:"Smith & Wesson",model:"M&P 45",caliber:"9mm",desc:"Full-size M&P striker-fired pistol",val_low:450,val_high:550,images:["IMG_024a.jpeg","IMG_024b.jpeg"],notes:"Polymer frame, striker-fired system, steel slide with Melonite finish, M&P ergonomics with interchangeable backstraps, standard 3-dot sights."},
+  {id:"025",type:"Gun",subtype:"Pistol",serial:"KO73780",make:"Kimber",model:"Classic Stainless Gold Match",caliber:".45 ACP",desc:"Match-grade 1911 with adjustable sights",val_low:900,val_high:1200,images:["IMG_025a.jpeg","IMG_025b.jpeg"],notes:"All brushed stainless construction. Match-grade barrel, fitted bushing, tuned trigger (~4–5 lb), adjustable rear sight."},
+  {id:"026",type:"Gun",subtype:"Pistol",serial:"K13884",make:"Kimber",model:"Stainless Target II",caliber:".45 ACP",desc:"Stainless 1911 target model",val_low:750,val_high:950,images:["IMG_026a.jpeg","IMG_026b.jpeg"],notes:"Brushed stainless frame & slide, adjustable rear sight, skeletonized aluminum trigger, beavertail grip safety, extended thumb safety, wood grips."},
+  {id:"027",type:"Gun",subtype:"Pistol",serial:"AOA33394",make:"Auto-Ordnance",model:"1911A1 GI",caliber:".45 ACP",desc:"WWII-era M1911A1 replica",val_low:400,val_high:550,images:["IMG_027a.jpeg","IMG_027b.jpeg"],notes:"Intentional WWII M1911A1 service pistol replica. GI sights, spur hammer, short grip safety, flat mainspring housing, Parkerized finish."},
+  {id:"028",type:"Gun",subtype:"Pistol",serial:"GAO140",make:"Kahr",model:"MK9",caliber:"9mm",desc:"All-steel subcompact DAO pistol",val_low:500,val_high:650,images:["IMG_028a.jpeg","IMG_028b.jpeg"],notes:"All-steel construction, ~3\" barrel, 6–7 round capacity. DAO trigger (long smooth revolver-like pull), no external safety. Designed for concealed/ankle carry."},
+  {id:"029",type:"Gun",subtype:"Pistol",serial:"AR2613",make:"Kahr",model:"K9",caliber:"9mm",desc:"All-steel compact DAO pistol",val_low:400,val_high:525,images:["IMG_029a.jpeg","IMG_029b.jpeg"],notes:"All stainless steel, longer grip than MK9 (7–8 rounds), DAO trigger, minimalist design. Snag-free lines for concealed carry."},
+  {id:"030",type:"Gun",subtype:"Pistol",serial:"371467970",make:"Ruger",model:"LCP",caliber:".380 ACP",desc:"Ultra-compact pocket carry pistol",val_low:250,val_high:325,images:[],notes:"~2.75\" barrel, extremely thin profile, polymer frame. Aftermarket red trigger. No external safety on this variant. Deep concealment design."},
+  {id:"031",type:"Gun",subtype:"Revolver",serial:"CRN2280",make:"Smith & Wesson",model:"Model 317 AirLite",caliber:".22 LR",desc:"8-shot J-frame lightweight revolver",val_low:550,val_high:700,images:["IMG_031a.jpeg"],notes:"AirLite silver alloy frame, .22 LR CTG marked barrel, 8-shot cylinder, fiber optic red front sight, rubber combat grip. Extremely lightweight."},
+  {id:"032",type:"Gun",subtype:"Revolver",serial:"CST7730",make:"Smith & Wesson",model:"Model 60",caliber:".357 Magnum",desc:"J-frame stainless snub-nose revolver",val_low:650,val_high:800,images:["IMG_032a.jpeg"],notes:"Stainless steel J-frame, 5-shot cylinder, ~2–3\" snub nose barrel, exposed hammer allowing both SA and DA fire."},
+  {id:"033",type:"Gun",subtype:"Pistol",serial:"HUP0259",make:"Smith & Wesson",model:"M&P Shield Gen 1",caliber:"9mm",desc:"Single-stack slim concealed carry",val_low:300,val_high:375,images:["IMG_033a.jpeg"],notes:"Slim single-stack profile, polymer frame, striker-fired, Gen 1 hinged trigger. No thumb safety variant. Classic IWB carry."},
+  {id:"034",type:"Gun",subtype:"Revolver",serial:"UG7934",make:"Taylor's & Co.",model:"1873 Cattleman",caliber:".45 Colt",desc:"Uberti-made Single Action Army reproduction",val_low:600,val_high:800,images:["IMG_034a.jpeg","IMG_034b.jpeg"],notes:"U.S. imported, Uberti (Italy) manufactured. High-quality historical SAA reproduction, strong reputation in Cowboy Action Shooting (CAS)."},
+  {id:"035",type:"Gun",subtype:"Revolver",serial:"UG4555",make:"Taylor's & Co.",model:"1873 Smoke Wagon",caliber:".45 Colt",desc:"7.5\" cavalry SAA with premium finish",val_low:750,val_high:1000,images:["IMG_035a.jpeg","IMG_035b.jpeg"],notes:"7.5\" cavalry-length barrel, better case hardening, well-polished cylinder and barrel. Premium Taylor's trim level, likely tuned action."},
+  {id:"036",type:"Gun",subtype:"Pistol",serial:"28257",make:"Beretta",model:"Model 1951 Brigadier",caliber:"9mm",desc:"Pre-92 series steel-frame Beretta",val_low:600,val_high:800,images:["IMG_036a.jpeg","IMG_036b.jpeg"],notes:"Direct predecessor to Beretta 92/M9. Steel frame, heel magazine release, 8-round capacity, open-top slide design with locking block."},
+  {id:"037",type:"Gun",subtype:"Revolver",serial:"G48018",make:"North American Arms",model:"Mini-Revolver",caliber:".22 LR",desc:"5-shot stainless pocket mini-revolver",val_low:225,val_high:300,images:["IMG_037a.jpeg"],notes:"North American Arms Inc., Provo, UT. Single-action, 5-shot cylinder, stainless steel, small wood grip panels, short barrel."},
+  {id:"038",type:"Gun",subtype:"Pistol",serial:"390-56153",make:"Ruger",model:"22/45 Lite",caliber:".22 LR",desc:"Lightweight target pistol for competition/suppressor",val_low:600,val_high:750,images:["IMG_038a.jpeg","IMG_038b.jpeg"],notes:"Ruger Mark-series lightweight variant with 1911-style grip angle. Designed for target shooting, Steel Challenge competition, and suppressor use."},
+  {id:"039",type:"Gun",subtype:"Pistol",serial:"T20941",make:"AMT",model:".22 LR Target Pistol",caliber:".22 LR",desc:"Fixed-barrel target pistol with optic",val_low:275,val_high:400,images:["IMG_039a.jpeg"],notes:"Fixed barrel (improves accuracy), 1911-style grip angle, adjustable rear sight, tube-style red dot/pistol scope mounted."},
+  {id:"040",type:"Gun",subtype:"Pistol",serial:"ASF39080",make:"Colt",model:"Officer's ACP",caliber:".45 ACP",desc:"Compact 1911 with upgrades",val_low:800,val_high:1050,images:["IMG_040a.jpeg"],notes:"Classic Colt blued carbon steel, Series 80. Compact grip for concealment. Upgraded: skeletonized trigger, extended beavertail, custom grips."},
+  {id:"041",type:"Gun",subtype:"Pistol",serial:"B18714",make:"Smith & Wesson",model:"Model 61 Escort",caliber:".22 LR",desc:"Early S&W pocket pistol",val_low:300,val_high:450,images:["IMG_041a.jpeg"],notes:"~2\" barrel, very compact, alloy frame, DA/SA operation, 7-round magazine. True early pocket pistol from S&W. Collectible vintage piece."},
+  {id:"042",type:"Gun",subtype:"Pistol",serial:"WB051483",make:"Walther",model:"PK380",caliber:".380 ACP",desc:"Polymer DA/SA with rail",val_low:325,val_high:425,images:["IMG_042a.jpeg"],notes:"Polymer frame, DA/SA with slide-mounted safety/decocker, Walther's ergonomic grip. Underbarrel rail for light/laser."},
+  {id:"043",type:"Gun",subtype:"Pistol",serial:"4042MR",make:"Colt",model:"Gold Cup National Match",caliber:".45 ACP",desc:"Classic blued 1911 target pistol",val_low:1100,val_high:1500,images:["IMG_044a.jpeg"],notes:"Scaled Government/National Match configuration. Alloy frame, steel slide, blued finish. Classic Colt wood grips with medallions. 7-round magazine."},
+  {id:"101",type:"Vehicle",subtype:"Truck",serial:"1FTFW1E12JFE01287",make:"Ford",model:"F-150",caliber:"2018",desc:"2018 Ford F-150 pickup truck",val_low:30152,val_high:32852,images:["FordF150-2018.jpeg"],notes:"Higher value with Lariat/King Ranch/Platinum trim, low miles (<60K), FX4/tow/tech packages, excellent condition."},
+  {id:"102",type:"Vehicle",subtype:"Motorcycle",serial:"4MZDX03D77DJ70254",make:"Buell",model:"(Model Unknown)",caliber:"2007",desc:"2007 Buell motorcycle, exceptionally low miles",val_low:5500,val_high:8500,images:["Buell-2007.jpeg"],notes:"Typical 2007 Buell has 10K–25K miles; under 2K is exceptionally rare. Collectors pay premium for original condition, unmodified bikes."},
+  {id:"103",type:"Vehicle",subtype:"Car",serial:"3FA6P0HR4DR167059",make:"Ford",model:"Fusion SE",caliber:"2013",desc:"2013 Ford Fusion SE, low mileage",val_low:8500,val_high:12000,images:["FordCar-2013.jpeg"],notes:"13 years old but ~70K miles below average. 2013 redesign still looks current, good fuel economy. Low miles likely add $2K–$4K premium."},
+  {id:"104",type:"Vehicle",subtype:"Car",serial:"GHN5UB239326G",make:"MG",model:"MGB Roadster",caliber:"1971",desc:"1971 MGB Convertible",val_low:6000,val_high:12000,images:["MG-1971.jpeg"],notes:"Value driven by: rust-free body (THE biggest factor), original chrome bumpers, clean interior, runs well, documentation. Pre-1974 cars preferred."},
+  {id:"105",type:"Vehicle",subtype:"Car",serial:"1JCCF87A7ET039107",make:"Jeep",model:"CJ7",caliber:"1984",desc:"1984 Jeep CJ7",val_low:10000,val_high:18000,images:["JeepCJ7-1984.jpeg"],notes:"Last true simple Jeep with huge aftermarket support and strong collector demand. Key factor: rust-free frame."},
+  {id:"106",type:"Vehicle",subtype:"Motorcycle",serial:"3E45559H6",make:"Harley-Davidson",model:"FLH Electra Glide",caliber:"1976",desc:"1976 Shovelhead Electra Glide, Bicentennial year",val_low:6000,val_high:10000,images:["Harley-1976.jpeg"],notes:"Pre-Evo era Shovelhead, highly collectible. 1976 = Bicentennial year adds desirability. Original paint/parts and matching numbers drive value up."},
+  {id:"107",type:"Vehicle",subtype:"Motorcycle",serial:"3H500302",make:"Yamaha",model:"XS-series 1100cc",caliber:"1980",desc:"1980 Yamaha XS 1100cc",val_low:500,val_high:2000,images:["Yamaha-1980.jpeg"],notes:"Higher end with clean title, solid frame, mostly complete, good cosmetics. Lower end with missing parts, rust, or electrical issues."},
 ];
 
 // ── STATE ──
-let activeType = 'all';
-let activeSubtype = null;
-let viewMode = 'grid';
-let sortMode = 'id';
+let activeType='all', activeSubtype=null, viewMode='grid', sortMode='id';
+let modalItem=null, modalImgIdx=0;
 
 function fmt$(n){return '$'+Number(n).toLocaleString('en-US',{maximumFractionDigits:0})}
-function fmtMid(item){return fmt$(Math.round((item.val_low+item.val_high)/2))}
+function fmtMid(i){return fmt$(Math.round((i.val_low+i.val_high)/2))}
+function imgSrc(filename){return 'images/'+filename}
 
 function getFiltered(){
-  const q = document.getElementById('search').value.toLowerCase().trim();
+  const q=document.getElementById('search').value.toLowerCase().trim();
   return ITEMS.filter(item=>{
-    if(activeType!=='all' && item.type!==activeType) return false;
+    if(activeType!=='all'&&item.type!==activeType) return false;
     if(activeSubtype){
-      const s = activeSubtype.toLowerCase();
-      if(s==='pistol' && item.subtype!=='Pistol') return false;
-      if(s==='revolver' && item.subtype!=='Revolver') return false;
-      if(s==='rifle' && !['Rifle'].includes(item.subtype)) return false;
-      if(s==='shotgun' && item.subtype!=='Shotgun') return false;
-      if(s==='air' && item.subtype!=='Air') return false;
-      if(s==='black powder' && item.subtype!=='Black Powder') return false;
+      const s=activeSubtype.toLowerCase();
+      if(s==='pistol'&&item.subtype!=='Pistol') return false;
+      if(s==='revolver'&&item.subtype!=='Revolver') return false;
+      if(s==='rifle'&&item.subtype!=='Rifle') return false;
+      if(s==='shotgun'&&item.subtype!=='Shotgun') return false;
+      if(s==='air'&&item.subtype!=='Air') return false;
+      if(s==='black powder'&&item.subtype!=='Black Powder') return false;
     }
-    if(q && !`${item.make} ${item.model} ${item.caliber} ${item.desc} ${item.serial}`.toLowerCase().includes(q)) return false;
+    if(q&&!`${item.make} ${item.model} ${item.caliber} ${item.desc} ${item.serial}`.toLowerCase().includes(q)) return false;
     return true;
   }).sort((a,b)=>{
     if(sortMode==='id') return a.id.localeCompare(b.id);
@@ -370,67 +355,73 @@ function getFiltered(){
   });
 }
 
+function thumbHTML(item){
+  if(item.images&&item.images.length>0){
+    return `<img src="${imgSrc(item.images[0])}" alt="${item.model}" loading="lazy" onerror="this.parentElement.innerHTML=placeholderHTML('${item.type}')">`;
+  }
+  return placeholderHTML(item.type);
+}
+
+function placeholderHTML(type){
+  const icon = type==='Gun'
+    ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 12h3l2-4h10l2 4h1v3h-2v1h-2v-1H8v1H6v-1H4v-3z"/></svg>`
+    : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>`;
+  return `<div class="card-img-placeholder">${icon}<span>No image</span></div>`;
+}
+
 function render(){
-  sortMode = document.getElementById('sort-sel').value;
-  const items = getFiltered();
+  sortMode=document.getElementById('sort-sel').value;
+  const items=getFiltered();
 
-  // Update counts
-  document.getElementById('cnt-all').textContent = ITEMS.length;
-  document.getElementById('cnt-gun').textContent = ITEMS.filter(i=>i.type==='Gun').length;
-  document.getElementById('cnt-vehicle').textContent = ITEMS.filter(i=>i.type==='Vehicle').length;
-  document.getElementById('cnt-pistol').textContent = ITEMS.filter(i=>i.subtype==='Pistol').length;
-  document.getElementById('cnt-revolver').textContent = ITEMS.filter(i=>i.subtype==='Revolver').length;
-  document.getElementById('cnt-rifle').textContent = ITEMS.filter(i=>i.subtype==='Rifle').length;
-  document.getElementById('cnt-shotgun').textContent = ITEMS.filter(i=>i.subtype==='Shotgun').length;
-  document.getElementById('cnt-air').textContent = ITEMS.filter(i=>i.subtype==='Air').length;
-  document.getElementById('cnt-bp').textContent = ITEMS.filter(i=>i.subtype==='Black Powder').length;
+  document.getElementById('cnt-all').textContent=ITEMS.length;
+  document.getElementById('cnt-gun').textContent=ITEMS.filter(i=>i.type==='Gun').length;
+  document.getElementById('cnt-vehicle').textContent=ITEMS.filter(i=>i.type==='Vehicle').length;
+  document.getElementById('cnt-pistol').textContent=ITEMS.filter(i=>i.subtype==='Pistol').length;
+  document.getElementById('cnt-revolver').textContent=ITEMS.filter(i=>i.subtype==='Revolver').length;
+  document.getElementById('cnt-rifle').textContent=ITEMS.filter(i=>i.subtype==='Rifle').length;
+  document.getElementById('cnt-shotgun').textContent=ITEMS.filter(i=>i.subtype==='Shotgun').length;
+  document.getElementById('cnt-air').textContent=ITEMS.filter(i=>i.subtype==='Air').length;
+  document.getElementById('cnt-bp').textContent=ITEMS.filter(i=>i.subtype==='Black Powder').length;
 
-  // Stats
-  const allGuns = ITEMS.filter(i=>i.type==='Gun');
-  const totalLow = ITEMS.reduce((s,i)=>s+i.val_low,0);
-  const totalHigh = ITEMS.reduce((s,i)=>s+i.val_high,0);
-  const totalMid = Math.round((totalLow+totalHigh)/2);
-  document.getElementById('s-total').textContent = ITEMS.length;
-  document.getElementById('s-guns').textContent = allGuns.length;
-  document.getElementById('s-value').textContent = fmt$(totalMid);
-  document.getElementById('s-high').textContent = fmt$(totalHigh);
-  document.getElementById('sidebar-total').textContent = fmt$(totalMid);
-  document.getElementById('sidebar-range').textContent = fmt$(totalLow)+' – '+fmt$(totalHigh);
+  const totalLow=ITEMS.reduce((s,i)=>s+i.val_low,0);
+  const totalHigh=ITEMS.reduce((s,i)=>s+i.val_high,0);
+  const totalMid=Math.round((totalLow+totalHigh)/2);
+  document.getElementById('s-total').textContent=ITEMS.length;
+  document.getElementById('s-guns').textContent=ITEMS.filter(i=>i.type==='Gun').length;
+  document.getElementById('s-value').textContent=fmt$(totalMid);
+  document.getElementById('s-high').textContent=fmt$(totalHigh);
+  document.getElementById('sidebar-total').textContent=fmt$(totalMid);
+  document.getElementById('sidebar-range').textContent=fmt$(totalLow)+' – '+fmt$(totalHigh);
+  document.getElementById('section-count').textContent=items.length+' item'+(items.length!==1?'s':'');
 
-  // Section info
-  document.getElementById('section-count').textContent = items.length+' item'+(items.length!==1?'s':'');
-
-  const container = document.getElementById('items-container');
-
+  const container=document.getElementById('items-container');
   if(items.length===0){
-    container.innerHTML = `<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><div>No items match your search</div></div>`;
+    container.innerHTML=`<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><div>No items found</div></div>`;
     return;
   }
 
   if(viewMode==='grid'){
-    container.innerHTML = `<div class="items-grid">${items.map((item,i)=>cardHTML(item,i)).join('')}</div>`;
+    container.innerHTML=`<div class="items-grid">${items.map((item,i)=>cardHTML(item,i)).join('')}</div>`;
   } else {
-    container.innerHTML = `<div class="items-list">
-      <div class="list-header">
-        <span>#</span><span>Item</span><span>Caliber / Year</span><span>Serial</span><span>Type</span><span style="text-align:right">Value</span>
-      </div>
+    container.innerHTML=`<div class="items-list">
+      <div class="list-header"><span>#</span><span>Photo</span><span>Item</span><span>Caliber / Year</span><span>Serial</span><span>Type</span><span style="text-align:right">Value Est.</span></div>
       ${items.map((item,i)=>rowHTML(item,i)).join('')}
     </div>`;
   }
 }
 
 function cardHTML(item,i){
-  const badge = item.type==='Gun'?'badge-gun':'badge-vehicle';
-  const label = item.type==='Gun'?'Firearm':'Vehicle';
-  const delay = Math.min(i*0.04,0.5);
+  const badge=item.type==='Gun'?'badge-gun':'badge-vehicle';
+  const hasImgs=item.images&&item.images.length>0;
+  const delay=Math.min(i*0.04,0.6);
   return `<div class="item-card" onclick="showDetail('${item.id}')" style="animation-delay:${delay}s">
     <div class="card-img">
-      <div class="card-img-placeholder">
-        ${item.type==='Gun'?`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 12h3l2-4h10l2 4h1v3h-2v1h-2v-1H8v1H6v-1H4v-3z"/></svg>`:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>`}
-        <span>${item.make}</span>
-      </div>
-      <span class="badge ${badge} card-type-badge">${item.subtype||label}</span>
-      <span class="card-id">${item.id}</span>
+      ${hasImgs
+        ? `<img src="${imgSrc(item.images[0])}" alt="${item.model}" loading="lazy" onerror="this.parentElement.innerHTML=placeholderHTML('${item.type}')">`
+        : placeholderHTML(item.type)}
+      <span class="badge ${badge} card-type-badge">${item.subtype||item.type}</span>
+      <span class="card-id">#${item.id}</span>
+      ${hasImgs&&item.images.length>1?`<span class="img-count"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>${item.images.length}</span>`:''}
     </div>
     <div class="card-body">
       <div class="card-make">${item.make}</div>
@@ -445,14 +436,16 @@ function cardHTML(item,i){
 }
 
 function rowHTML(item,i){
-  const badge = item.type==='Gun'?'badge-gun':'badge-vehicle';
-  const delay = Math.min(i*0.025,0.5);
+  const badge=item.type==='Gun'?'badge-gun':'badge-vehicle';
+  const delay=Math.min(i*0.025,0.5);
+  const hasImg=item.images&&item.images.length>0;
   return `<div class="list-row" onclick="showDetail('${item.id}')" style="animation-delay:${delay}s">
     <div class="list-num">${item.id}</div>
-    <div class="list-info">
-      <div class="list-make">${item.make}</div>
-      <div class="list-model">${item.model}</div>
+    <div class="list-thumb">${hasImg
+      ?`<img src="${imgSrc(item.images[0])}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<div class=list-thumb-placeholder><svg viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke=\\'currentColor\\' stroke-width=\\'2\\'><rect x=\\'3\\' y=\\'3\\' width=\\'18\\' height=\\'18\\' rx=\\'2\\'/></svg></div>'">`
+      :`<div class="list-thumb-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>`}
     </div>
+    <div><div class="list-make">${item.make}</div><div class="list-model">${item.model}</div></div>
     <div class="list-cal">${item.caliber}</div>
     <div class="list-serial">${item.serial}</div>
     <div class="list-type"><span class="${badge}">${item.subtype||item.type}</span></div>
@@ -460,13 +453,43 @@ function rowHTML(item,i){
   </div>`;
 }
 
+// ── MODAL ──
 function showDetail(id){
-  const item = ITEMS.find(i=>i.id===id);
-  if(!item) return;
-  const badge = item.type==='Gun'?'badge-gun':'badge-vehicle';
-  document.getElementById('modal-content').innerHTML = `
+  modalItem=ITEMS.find(i=>i.id===id);
+  if(!modalItem) return;
+  modalImgIdx=0;
+  renderModal();
+  document.getElementById('modal').classList.add('open');
+}
+
+function renderModal(){
+  const item=modalItem;
+  const badge=item.type==='Gun'?'badge-gun':'badge-vehicle';
+  const imgs=item.images||[];
+
+  let galleryHTML='';
+  if(imgs.length>0){
+    const navBtns=imgs.length>1?`
+      <button class="gallery-nav prev" onclick="event.stopPropagation();changeImg(-1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <button class="gallery-nav next" onclick="event.stopPropagation();changeImg(1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+    `:'';
+    const thumbs=imgs.length>1?`<div class="gallery-thumbs">${imgs.map((img,idx)=>`
+      <div class="g-thumb${idx===modalImgIdx?' active':''}" onclick="event.stopPropagation();setImg(${idx})">
+        <img src="${imgSrc(img)}" alt="" loading="lazy">
+      </div>`).join('')}</div>`:'';
+    galleryHTML=`<div class="gallery">
+      <div class="gallery-main" id="gallery-main">
+        <img id="main-img" src="${imgSrc(imgs[modalImgIdx])}" alt="${item.model}" onerror="this.src='';this.parentElement.innerHTML='<div class=no-img><svg viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke=\\'currentColor\\' stroke-width=\\'1.5\\'><rect x=\\'3\\' y=\\'3\\' width=\\'18\\' height=\\'18\\' rx=\\'2\\'/><circle cx=\\'8.5\\' cy=\\'8.5\\' r=\\'1.5\\'/><polyline points=\\'21 15 16 10 5 21\\'/></svg><span>Image not found</span></div>'">
+        ${navBtns}
+      </div>
+      ${thumbs}
+    </div>`;
+  }
+
+  document.getElementById('modal-content').innerHTML=`
+    ${galleryHTML}
     <div class="modal-header">
-      <div class="modal-num">Item #${item.id} · Serial: ${item.serial}</div>
+      <div class="modal-num">Item #${item.id} &nbsp;·&nbsp; Serial: ${item.serial}</div>
       <div class="modal-make">${item.make}</div>
       <div class="modal-model">${item.model}</div>
       <button class="modal-close" onclick="closeModal()">
@@ -480,20 +503,42 @@ function showDetail(id){
         <div class="vrb-item"><div class="vrb-label">Est. High</div><div class="vrb-val high">${fmt$(item.val_high)}</div></div>
       </div>
       <div class="detail-grid">
-        <div class="detail-item"><div class="detail-label">Make / Manufacturer</div><div class="detail-val">${item.make}</div></div>
-        <div class="detail-item"><div class="detail-label">Model</div><div class="detail-val">${item.model}</div></div>
-        <div class="detail-item"><div class="detail-label">Caliber / Year</div><div class="detail-val mono">${item.caliber}</div></div>
-        <div class="detail-item"><div class="detail-label">Serial Number</div><div class="detail-val mono">${item.serial}</div></div>
-        <div class="detail-item"><div class="detail-label">Type</div><div class="detail-val"><span class="badge ${badge}" style="font-size:12px">${item.subtype||item.type}</span></div></div>
-        <div class="detail-item"><div class="detail-label">Item #</div><div class="detail-val mono">${item.id}</div></div>
+        <div><div class="detail-label">Make / Manufacturer</div><div class="detail-val">${item.make}</div></div>
+        <div><div class="detail-label">Model</div><div class="detail-val">${item.model}</div></div>
+        <div><div class="detail-label">Caliber / Year</div><div class="detail-val mono">${item.caliber}</div></div>
+        <div><div class="detail-label">Serial Number</div><div class="detail-val mono">${item.serial}</div></div>
+        <div><div class="detail-label">Category</div><div class="detail-val"><span class="badge ${badge}" style="font-size:12px">${item.subtype||item.type}</span></div></div>
+        <div><div class="detail-label">Item #</div><div class="detail-val mono">${item.id}</div></div>
       </div>
-      <div class="detail-item" style="margin-bottom:12px"><div class="detail-label" style="margin-bottom:6px">Description</div><div class="detail-val" style="font-size:14px;color:var(--text2)">${item.desc}</div></div>
+      <div style="margin-bottom:12px"><div class="detail-label" style="margin-bottom:5px">Description</div><div style="font-size:13.5px;color:var(--text2)">${item.desc}</div></div>
       ${item.notes?`<div class="notes-box">${item.notes}</div>`:''}
     </div>`;
-  document.getElementById('modal').classList.add('open');
+}
+
+function changeImg(dir){
+  const imgs=modalItem.images||[];
+  if(imgs.length===0) return;
+  modalImgIdx=(modalImgIdx+dir+imgs.length)%imgs.length;
+  document.getElementById('main-img').src=imgSrc(imgs[modalImgIdx]);
+  document.querySelectorAll('.g-thumb').forEach((t,i)=>t.classList.toggle('active',i===modalImgIdx));
+}
+
+function setImg(idx){
+  const imgs=modalItem.images||[];
+  modalImgIdx=idx;
+  document.getElementById('main-img').src=imgSrc(imgs[modalImgIdx]);
+  document.querySelectorAll('.g-thumb').forEach((t,i)=>t.classList.toggle('active',i===modalImgIdx));
 }
 
 function closeModal(){document.getElementById('modal').classList.remove('open')}
+
+// keyboard nav
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('modal').classList.contains('open')) return;
+  if(e.key==='Escape') closeModal();
+  if(e.key==='ArrowRight') changeImg(1);
+  if(e.key==='ArrowLeft') changeImg(-1);
+});
 
 function setView(v){
   viewMode=v;
@@ -507,7 +552,7 @@ function setType(t,btn){
   document.querySelectorAll('.sidebar .nav-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   const titles={all:'Full Collection',Gun:'Firearms',Vehicle:'Vehicles'};
-  document.getElementById('section-title').textContent = titles[t]||t;
+  document.getElementById('section-title').textContent=titles[t]||t;
   render();
 }
 
@@ -515,11 +560,10 @@ function setSubtype(s,btn){
   activeType='Gun'; activeSubtype=s;
   document.querySelectorAll('.sidebar .nav-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  document.getElementById('section-title').textContent = s+' Collection';
+  document.getElementById('section-title').textContent=s+' Collection';
   render();
 }
 
-// Init
 render();
 </script>
 </body>
