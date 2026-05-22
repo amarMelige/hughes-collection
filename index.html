@@ -288,7 +288,7 @@ select.sort-sel:focus{border-color:var(--gold3)}
   </div>
   <div class="ndivider"></div>
   <div class="val-box">
-    <div class="val-box-lbl">Collection Value</div>
+    <div class="val-box-lbl">Total Asking Price</div>
     <div class="val-box-num" id="sb-total">—</div>
     <div class="val-box-range" id="sb-range">Low – High estimate</div>
   </div>
@@ -298,8 +298,8 @@ select.sort-sel:focus{border-color:var(--gold3)}
   <div class="stats">
     <div class="stat"><div class="stat-lbl">Total Items</div><div class="stat-val" id="s-total">—</div><div class="stat-sub">Firearms + Vehicles</div></div>
     <div class="stat"><div class="stat-lbl">Firearms</div><div class="stat-val" id="s-guns">—</div><div class="stat-sub">Across all types</div></div>
-    <div class="stat"><div class="stat-lbl">Mid Estimate</div><div class="stat-val gold" id="s-mid">—</div><div class="stat-sub">Avg of low / high</div></div>
-    <div class="stat"><div class="stat-lbl">Asking Total</div><div class="stat-val green" id="s-sell">—</div><div class="stat-sub">Will sell @ price</div></div>
+    <div class="stat"><div class="stat-lbl">Items for Sale</div><div class="stat-val gold" id="s-mid">—</div><div class="stat-sub">With asking price set</div></div>
+    <div class="stat"><div class="stat-lbl">Total Asking</div><div class="stat-val green" id="s-sell">—</div><div class="stat-sub">Sum of ask prices</div></div>
   </div>
   <div class="toolbar">
     <div>
@@ -310,8 +310,6 @@ select.sort-sel:focus{border-color:var(--gold3)}
       <option value="id">Sort: Item #</option>
       <option value="make">Sort: Make A–Z</option>
       <option value="model">Sort: Model A–Z</option>
-      <option value="val_high">Sort: Value High–Low</option>
-      <option value="val_low">Sort: Value Low–High</option>
       <option value="sell">Sort: Ask Price High–Low</option>
     </select>
   </div>
@@ -464,12 +462,13 @@ function render(){
   const avail=D.filter(i=>!i.sold);
   const tl=avail.reduce((s,i)=>s+i.vl,0),th=avail.reduce((s,i)=>s+i.vh,0);
   const ts=D.filter(i=>i.vs&&!i.sold).reduce((s,i)=>s+(i.vs||0),0);
+  const forSaleCount=D.filter(i=>i.vs&&!i.sold).length;
   $('s-total').textContent=D.length;
   $('s-guns').textContent=D.filter(i=>i.type==='Gun').length;
-  $('s-mid').textContent=fmt(Math.round((tl+th)/2));
+  $('s-mid').textContent=forSaleCount;
   $('s-sell').textContent=fmt(ts);
-  $('sb-total').textContent=fmt(Math.round((tl+th)/2));
-  $('sb-range').textContent=fmt(tl)+' – '+fmt(th);
+  $('sb-total').textContent=fmt(ts);
+  $('sb-range').textContent=forSaleCount+' items with asking price';
   $('sec-count').textContent=items.length+' item'+(items.length!==1?'s':'');
   const c=$('container');
   if(!items.length){c.innerHTML=`<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>No items match your search</div>`;return;}
@@ -514,8 +513,7 @@ function cardH(it,i){
       ${it.sdesc?`<div class="card-shortdesc">${it.sdesc}</div>`:''}
       <div class="card-footer">
         <div class="card-vals">
-          ${it.vl||it.vh?`<span class="card-val-range">${fmt(it.vl)} – ${fmt(it.vh)}</span>`:`<span class="card-val-range" style="color:var(--text3)">Value TBD</span>`}
-          ${it.vs&&!it.sold?`<span class="card-sell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>Ask: ${fmt(it.vs)}</span>`:''}
+          ${it.sold?`<span class="sold-tag">Sold</span>`:it.vs?`<span class="card-sell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>Ask: ${fmt(it.vs)}</span>`:`<span class="card-val-range" style="color:var(--text3)">Price on request</span>`}
         </div>
       </div>
     </div>
@@ -533,7 +531,7 @@ function rowH(it,i){
     <div class="list-cal">${it.cal||'—'}</div>
     <div class="list-serial">${it.serial||'—'}</div>
     <div class="list-vals">
-      ${it.sold?`<div><span class="sold-tag">Sold</span></div>`:`<div class="list-range">${it.vl||it.vh?`${fmt(it.vl)}–${fmt(it.vh)}`:'TBD'}</div>${it.vs?`<div class="list-sell">Ask: ${fmt(it.vs)}</div>`:''}`}
+      ${it.sold?`<div><span class="sold-tag">Sold</span></div>`:it.vs?`<div class="list-sell" style="font-size:13px;font-weight:600;color:var(--sell)">Ask: ${fmt(it.vs)}</div>`:`<div class="list-range" style="color:var(--text3)">Price on request</div>`}
     </div>
   </div>`;
 }
@@ -568,10 +566,7 @@ function renderModal(){
     </div>
     <div class="modal-body">
       <div class="val-strip">
-        <div class="vs-item"><div class="vs-lbl">Est. Low</div><div class="vs-val low">${it.vl?fmt(it.vl):'—'}</div></div>
-        <div class="vs-item"><div class="vs-lbl">Mid Estimate</div><div class="vs-val mid">${it.vl&&it.vh?mid(it):'—'}</div></div>
-        <div class="vs-item"><div class="vs-lbl">Est. High</div><div class="vs-val high">${it.vh?fmt(it.vh):'—'}</div></div>
-        <div class="vs-item"><div class="vs-lbl">${it.sold?'Sold @':'Will Sell @'}</div><div class="vs-val sell">${it.vs?fmt(it.vs):'—'}</div></div>
+        <div class="vs-item" style="border-right:none"><div class="vs-lbl">${it.sold?'Sold @':'Asking Price'}</div><div class="vs-val sell" style="font-size:26px">${it.vs?fmt(it.vs):'Price on request'}</div></div>
       </div>
       <div class="fields-grid">
         <div class="field"><div class="field-lbl">Make / Manufacturer</div><div class="field-val">${it.make||'—'}</div></div>
