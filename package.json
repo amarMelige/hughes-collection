@@ -1,0 +1,16 @@
+{
+  "name": "hughes-collection",
+  "version": "1.0.0",
+  "description": "This project is a private, password-protected digital catalog for the Hughes Estate's personal collection of firearms and vehicles.",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0"
+  }
+}
